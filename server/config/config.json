@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "postgres",
+<<<<<<< HEAD
     "password": "",
+=======
+    "password": "abcd",
+>>>>>>> 56fe1886c1394e90f31fdeb1a15c07316a516f14
     "database": "Skillup",
     "host": "127.0.0.1",
     "dialect": "postgres"
