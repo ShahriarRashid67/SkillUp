@@ -27,7 +27,7 @@ const Business = () => {
       <div className="right md:w-1/2 flex justify-center">
         <div className="w-9/12 shadow-lg hover:shadow-xl rounded-2xl p-1">
           <img
-            src="../src/assets/img/business1.jpg"
+            src="../src/assets/img/new/business_new.jpg"
             alt=""
             className="rounded-2xl"
           />
