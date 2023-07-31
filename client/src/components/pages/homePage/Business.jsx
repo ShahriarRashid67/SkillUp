@@ -3,7 +3,6 @@ const Business = () => {
     <div className="md:flex min-h-[500px] items-center max-w-6xl mx-auto md:px-20">
       <div className="left md:w-1/2 ml-5 text-left p-5">
         <h1 className="text-xl mb-3">
-<<<<<<< HEAD
           Become a skilled{" "}
           <span className="text-indigo-600 text-2xl font-bold">Student</span>
         </h1>
@@ -14,19 +13,6 @@ const Business = () => {
           </li>
           <li>Learn from the experts from different subjects</li>
           <li>Clear all your doubts and be the best.</li>
-=======
-          Better Dev{" "}
-          <span className="text-indigo-600 text-2xl font-bold">Business</span>
-        </h1>
-        <h1 className="text-3xl">Upskill your team with Better Dev Business</h1>
-        <ul className="list-disc pl-5 my-5">
-          <li>
-            Unlimited access to 22,000+ top Better Dev courses, anytime,
-            anywhere
-          </li>
-          <li>International course collection in 14 languages</li>
-          <li>Top certifications in tech and business</li>
->>>>>>> 56fe1886c1394e90f31fdeb1a15c07316a516f14
         </ul>
 
         <div className="flex gap-4">
@@ -41,11 +27,7 @@ const Business = () => {
       <div className="right md:w-1/2 flex justify-center">
         <div className="w-9/12 shadow-lg hover:shadow-xl rounded-2xl p-1">
           <img
-<<<<<<< HEAD
             src="../src/assets/img/new/business_new.jpg"
-=======
-            src="../src/assets/img/business1.jpg"
->>>>>>> 56fe1886c1394e90f31fdeb1a15c07316a516f14
             alt=""
             className="rounded-2xl"
           />
