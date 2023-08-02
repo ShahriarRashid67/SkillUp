@@ -24,190 +24,155 @@ const FooterTailwind = () => {
                       d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
                     />
                   </svg>
-                  <span className="font-bold">COURSERA</span>
+                  <span className="font-bold">SkillUp</span>
                 </a>
               </div>
 
               <div className="mt-4 lg:max-w-sm text-left">
                 <p className="text-sm text-purple-50">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium, totam rem aperiam.
+                  Skillup is the ideal platform for individuals looking to
+                  enhance their expertise and acquire valuable information.
                 </p>
                 <p className="mt-4 text-sm text-deep-purple-50">
-                  Eaque ipsa quae ab illo inventore veritatis et quasi
-                  architecto beatae vitae dicta sunt explicabo.
+                  Get help from someone who knows a lot and can give you
+                  individual attention. Get help with any topic you are
+                  studying.
                 </p>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
               <div>
-                <p className="font-semibold tracking-wide text-teal-accent-400">
-                  Category
-                </p>
                 <ul className="mt-2 space-y-2">
                   <li>
                     <a
-                      href="/"
+                      href="#"
                       className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                     >
-                      News
+                      Become a Student
                     </a>
                   </li>
                   <li>
                     <a
-                      href="/"
+                      href="#"
                       className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                     >
-                      World
+                      Join as a Teacher
                     </a>
                   </li>
                   <li>
                     <a
-                      href="/"
+                      href="#"
                       className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                     >
-                      Games
+                      About Us
                     </a>
                   </li>
                   <li>
                     <a
-                      href="/"
+                      href="#"
                       className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                     >
-                      References
+                      Contact Us
                     </a>
                   </li>
                 </ul>
               </div>
               <div>
-                <p className="font-semibold tracking-wide text-teal-accent-400">
-                  Cherry
-                </p>
                 <ul className="mt-2 space-y-2">
                   <li>
                     <a
-                      href="/"
+                      href="#"
                       className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                     >
-                      Web
+                      Career with SkillUp
                     </a>
                   </li>
                   <li>
                     <a
-                      href="/"
+                      href="#"
                       className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                     >
-                      eCommerce
+                      SkillUp Forum
                     </a>
                   </li>
                   <li>
                     <a
-                      href="/"
+                      href="#"
+                      className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
+                    >
+                      Blogs
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
+                    >
+                      FAQ
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <ul className="mt-2 space-y-2">
+                  <li>
+                    <a
+                      href="#"
+                      className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
+                    >
+                      Help & Support
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
+                    >
+                      Investors
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
+                    >
+                      Affiliate
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
                       className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                     >
                       Business
                     </a>
                   </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
-                    >
-                      Entertainment
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
-                    >
-                      Portfolio
-                    </a>
-                  </li>
                 </ul>
               </div>
               <div>
-                <p className="font-semibold tracking-wide text-teal-accent-400">
-                  Apples
-                </p>
                 <ul className="mt-2 space-y-2">
                   <li>
                     <a
-                      href="/"
+                      href="#"
                       className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                     >
-                      Media
+                      Terms & Conditions
                     </a>
                   </li>
                   <li>
                     <a
-                      href="/"
+                      href="#"
                       className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                     >
-                      Brochure
+                      Privacy Policy
                     </a>
                   </li>
                   <li>
                     <a
-                      href="/"
+                      href="#"
                       className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
                     >
-                      Nonprofit
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
-                    >
-                      Educational
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
-                    >
-                      Projects
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <p className="font-semibold tracking-wide text-teal-accent-400">
-                  Business
-                </p>
-                <ul className="mt-2 space-y-2">
-                  <li>
-                    <a
-                      href="/"
-                      className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
-                    >
-                      Infopreneur
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
-                    >
-                      Personal
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
-                    >
-                      Wiki
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"
-                    >
-                      Forum
+                      Cookie Settings
                     </a>
                   </li>
                 </ul>
@@ -216,7 +181,7 @@ const FooterTailwind = () => {
           </div>
           <div className="flex flex-col justify-between pt-5 pb-10 border-t border-deep-purple-accent-200 sm:flex-row">
             <p className="text-sm text-gray-100">
-              © Copyright 2020 Lorem Inc. All rights reserved.
+              © Copyright 2023 Skillup Inc. All rights reserved.
             </p>
             <div className="flex items-center mt-4 space-x-4 sm:mt-0">
               <a
