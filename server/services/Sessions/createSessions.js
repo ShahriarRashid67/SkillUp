@@ -3,7 +3,11 @@ const { sessions } = require('../../models');
 var crypto = require('crypto');
 
 module.exports = async (req, res) => {
-  const { studentID, mentorID, day, time } = req.body;
+  const { studentID, mentorID, massage, day, courseName } = req.body;
+  console.log(req.body);
+  // if (!sessionsID || !mentorID || !massage || !day) {
+  //   return res.status(200);
+  // }
   const data = await sessions.findAll({ where: { studentID, mentorID, day } });
   // if (data.length !== 0) {
   //   return res.status(401).json({ error: 'Already added' });
@@ -18,8 +22,9 @@ module.exports = async (req, res) => {
       mentorID,
       mentorStatus: 'Pending',
       roomID: room,
+      massage,
+      courseName,
       day,
-      time,
     });
     console.log(data);
     return res.json(data);

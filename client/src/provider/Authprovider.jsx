@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from 'react';
 // import {
 //   // createUserWithEmailAndPassword,
 //   // getAuth,
@@ -22,47 +22,53 @@ const Authprovider = ({ children }) => {
       name,
       email,
       password,
-      role
+      role,
     };
     console.log(credentials);
-    const users =  await fetch('http://localhost:3001/auth/signUp',{
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(credentials),
-      })
-        .then((data) => data.json(data))
-        .then((data) => {
-          console.log(data);
-          // setUser(data.email);
-          // setRole(data.role);
-        });
- 
+    const users = await fetch('http://localhost:3001/auth/signUp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(credentials),
+    })
+      .then((data) => data.json(data))
+      .then((data) => {
+        console.log(data);
+        // setUser(data.email);
+        // setRole(data.role);
+      });
   };
   // login account
   const userLogin = async (email, password) => {
-    console.log(email,password);
+    console.log(email, password);
     // setUser(email);
     const credentials = {
       email,
-      password
+      password,
     };
-    const users =  await fetch(`http://localhost:3001/auth/login`,{
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(credentials),
-      })
-        .then((data) => data.json(data))
+    const users = await fetch(`http://localhost:3001/auth/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(credentials),
+    })
+      .then((data) => data.json(data))
       .then((res) => {
         localStorage.setItem('user', JSON.stringify(res[0]));
         // console.log('fun',res[0]);
-          setuserID(res[0].id);
-          setUser(res[0].name);
-          setEmail(res[0].email)
+        setuserID(res[0].id);
+        setUser(res[0].name);
+        setEmail(res[0].email);
         setRole(res[0].role);
-        // setRole("Admin");
-      }).catch((err)=>{
+        // setRole('Admin');
+      })
+      .catch((err) => {
         console.log(err);
-        });
+      });
+    const Allusers = await fetch(`http://localhost:3001/auth/all`)
+      .then((data) => data.json())
+      .then((data) => {
+        console.log('All user', data);
+        localStorage.setItem('allUser', JSON.stringify(data));
+      });
   };
   // sign out
   const userSignOut = () => {
@@ -81,9 +87,9 @@ const Authprovider = ({ children }) => {
   //     unsubscrive();
   //   };
   // }, []);
-
+  // setRole('Admin');
   // const role = "Student";
-  // const role = "Admin";
+  // const role = 'Admin';
   // const role = "Instructor";
   const data = {
     userRegistration,
@@ -95,9 +101,7 @@ const Authprovider = ({ children }) => {
     // loading,
     role,
   };
-  return (
-    <Authcontext.Provider value={data}>{children}</Authcontext.Provider>
-  );
+  return <Authcontext.Provider value={data}>{children}</Authcontext.Provider>;
 };
 
 export default Authprovider;

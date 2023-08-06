@@ -12,6 +12,10 @@ module.exports = async (req, res) => {
         hourRate: '0',
         noSessions: '0',
         rating: '0',
+        github: '',
+        title: '',
+        description: '',
+        linkedin: '',
       });
       return res.json(user);
     }

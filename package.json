@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "zego-superboard-web": "^2.8.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.4"
   }
 }

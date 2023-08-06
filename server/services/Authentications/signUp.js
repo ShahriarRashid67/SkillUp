@@ -12,13 +12,18 @@ module.exports = async (req, res) => {
 
   try {
     const id = uuidv4();
+    console.log(role);
     if (role == 'Instructor') {
       const data = await instructor.create({
-        id,
+        id: id,
         status: 'Pending',
         hourRate: '0',
         noSession: '0',
         rating: '0',
+        github: '',
+        title: '',
+        description: '',
+        linkedin: '',
       });
       console.log(data);
     }
