@@ -8,14 +8,25 @@ const BrowseMentor = () => {
   const [course, setCourse] = useState([]);
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [instructors, setInstructors] = useState(null);
+  const [all, setall] = useState(null);
+  let list = [];
   const getAllinstructor = () => {
     fetch(`http://localhost:3001/instructor/`)
       .then((data) => data.json())
       .then((data) => {
         setInstructors(data);
+        setall(data);
+        // data.map((da) => {
+        //   console.log(da);
+        // const t = {
+        //   lebel: da.name,
+        // };
+        //   console.log('t', t);
+        // });
         // console.log(data);
       });
   };
+
   useEffect(() => {
     getAllinstructor();
   }, []);
@@ -49,12 +60,12 @@ const BrowseMentor = () => {
 
   return (
     <div>
-      {/* <Room></Room> */}
-      {/* <Search course={course}></Search> */}
-      {/* <select></select> */}
-      {/* {course &&
-        course.map((item, index) => <div key={index}>{item.courseName}</div>)} */}
-      <Search course={course}></Search>
+      <Search
+        course={course}
+        all={all}
+        setInstructors={setInstructors}
+      ></Search>
+      {!instructors && (console.log('called'), getAllinstructor)}
       {console.log(instructors)}
       {instructors && (
         <InstructorGrid instructors={instructors}></InstructorGrid>

@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
     total_amount: amount,
     currency: 'BDT',
     tran_id: id, // use unique tran_id for each api call
-    success_url: 'http://localhost:5173/',
+    success_url: `http://localhost:3001/order/sucess`,
     fail_url: 'http://localhost:5173/',
     cancel_url: 'http://localhost:5173/',
     ipn_url: 'http://localhost:5173/ipn',

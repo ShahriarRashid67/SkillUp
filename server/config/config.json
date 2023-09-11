@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "abcd",
-    "database": "Skillup",
+    "username": "", //enter data base user name
+    "password": "", // Enter dateabase password
+    "database": "", // Enter data base name
     "host": "127.0.0.1",
     "dialect": "postgres",
     "logging": false

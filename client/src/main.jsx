@@ -26,6 +26,8 @@ import PendingInstructor from './components/pages/Dashboard/Admin/PendingInstruc
 import Addcourse from './components/pages/Dashboard/Admin/Addcourse.jsx';
 import AdminDashboard from './components/pages/Dashboard/Admin/AdminDashboard.jsx';
 import ContactUs from './components/common/ContactUs.jsx';
+import PendingSec from './components/pages/Dashboard/Admin/PendingSec.jsx';
+import Reviews from './components/pages/Dashboard/Student/reviews.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -92,6 +94,10 @@ const router = createBrowserRouter([
         element: <Room></Room>,
       },
       {
+        path: '/dashboard/StudentClass/Review',
+        element: <Reviews></Reviews>,
+      },
+      {
         path: '/dashboard/InstructorClass/Room',
         element: <Room></Room>,
       },
@@ -109,7 +115,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/dashboard/Pending',
-        element: <PendingInstructor></PendingInstructor>,
+        element: <PendingSec></PendingSec>,
       },
       {
         path: '/dashboard/addCourse',

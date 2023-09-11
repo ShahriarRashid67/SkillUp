@@ -17,10 +17,10 @@ const PendingInstructor = () => {
         <div className='overflow-x-auto'>
           <table className='min-w-full text-xs text-left'>
             <tr className=' text-lg  font-serif '>
-              <th className='p-3 bg-slate-200 rounded-tl-2xl'>Name</th>
+              <th className='p-3 bg-slate-200 rounded-tl-2xl '>Name</th>
               <th className='p-3 bg-slate-200'>Instructor Email</th>
               <th className='p-3 bg-slate-200'>Registered</th>
-              <th className='p-3 bg-slate-200'>Action</th>
+              <th className='p-3 bg-slate-200 rounded-tr-2xl'>Action</th>
             </tr>
             <tbody>
               {users.map((user) => (
@@ -28,7 +28,7 @@ const PendingInstructor = () => {
 
                 <PendingRow key={user.id} user={user}></PendingRow>
               ))}
-              {/* <ClassesRow></ClassesRow> */}
+              {/* <></ ClassesRow> */}
             </tbody>
           </table>
         </div>

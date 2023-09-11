@@ -8,22 +8,23 @@ import {
 } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { AssuredWorkloadSharp } from '@mui/icons-material';
+import { AssuredWorkloadSharp, TextFields } from '@mui/icons-material';
 import Swal from 'sweetalert2';
-import { Box, Rating } from '@mui/material';
+import { Box, Rating, TextField } from '@mui/material';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper';
+// import { param } from '../../../../../../server/routes/Authentication/Auth';
 
 const Booking = ({ instructor }) => {
   const location = useLocation();
   const from = location.state?.from;
   const { id, hourRate } = from;
-  const allUser = JSON.parse(localStorage.getItem('allUser'));
   const User = JSON.parse(localStorage.getItem('user'));
+  const allUser = JSON.parse(localStorage.getItem('allUser'));
   const ind = allUser.findIndex((user) => user.id == id);
 
   console.log('Name', allUser[ind].name);
@@ -37,14 +38,14 @@ const Booking = ({ instructor }) => {
   const [day, setDay] = useState([]);
   const [mentorInfo, setMentorInfo] = useState([]);
   const [reviews, setReviews] = useState([]);
-  const [avgreviews, setavgReviews] = useState('');
+  const [avgreviews, setavgReviews] = useState(0);
 
   useState(() => {
     fetch(`http://localhost:3001/expert/mentor/${id}`)
       .then((data) => data.json(data))
       .then((data) => {
         // const [s, setS] = useState(data);
-        console.log('Expert', data);
+        // console.log('Expert', data);
         setexpertList(data);
       });
   }, []);
@@ -60,7 +61,8 @@ const Booking = ({ instructor }) => {
     fetch(`http://localhost:3001/reviews/${id}`)
       .then((data) => data.json(data))
       .then((data) => {
-        console.log('rev', data), setReviews(data);
+        // console.log('rev', data),
+        setReviews(data);
       });
     let sum = 0;
     reviews.map((elemnt) => (sum += elemnt.star));
@@ -69,8 +71,11 @@ const Booking = ({ instructor }) => {
   }, []);
   // console.log('From', from);
   const onSubmit = () => {
-    const dummy = JSON.stringify(day);
-    const time = dummy.substring(1, dummy.length - 1);
+    console.log('Day', day);
+    let date = new Date(day);
+    const dummy = JSON.stringify(date);
+    let time = dummy.substring(1, dummy.length - 1);
+
     console.log(time);
     if (!massage) {
       Swal.fire({
@@ -139,41 +144,43 @@ const Booking = ({ instructor }) => {
               readOnly
             />
             <p className='text-xs sm:text-base text-gray-500'>
-              rating({reviews.length} reviews)
+              rating({reviews?.length} reviews)
             </p>
           </div>
           <div>
-            <Swiper
-              navigation={true}
-              modules={[Navigation]}
-              className='mySwiper w-96 rounded-xl'
-            >
-              {
-                (console.log(reviews),
-                reviews.map((elemnt, index) => (
-                  <SwiperSlide key={index} className='px-10'>
-                    <div>
-                      <div className=''>
-                        {
-                          allUser[
-                            allUser.findIndex(
-                              (user) => user.id == elemnt.studentID
-                            )
-                          ].name
-                        }
+            {reviews && (
+              <Swiper
+                navigation={true}
+                modules={[Navigation]}
+                className='mySwiper w-96 rounded-xl'
+              >
+                {
+                  (console.log(reviews),
+                  reviews.map((elemnt, index) => (
+                    <SwiperSlide key={index} className='px-10'>
+                      <div>
+                        <div className=''>
+                          {
+                            allUser[
+                              allUser.findIndex(
+                                (user) => user.id == elemnt.studentID
+                              )
+                            ].name
+                          }
+                        </div>
+                        <Rating
+                          name='read-only'
+                          value={elemnt.star}
+                          precision={0.1}
+                          readOnly
+                        />
+                        <p className='text-xs sm:text-base'>{elemnt.details}</p>
                       </div>
-                      <Rating
-                        name='read-only'
-                        value={elemnt.star}
-                        precision={0.1}
-                        readOnly
-                      />
-                      <p className='text-xs sm:text-base'>{elemnt.details}</p>
-                    </div>
-                  </SwiperSlide>
-                )))
-              }
-            </Swiper>
+                    </SwiperSlide>
+                  )))
+                }
+              </Swiper>
+            )}
           </div>
         </div>
       </div>
@@ -210,14 +217,11 @@ const Booking = ({ instructor }) => {
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DateTimePicker
                   label='Select date and time BST'
-                  onChange={(newValue) => setDay(newValue)}
-                  minTime={start}
-                  value={value}
-                  viewRenderers={{
-                    hours: renderTimeViewClock,
-                    minutes: renderTimeViewClock,
-                    seconds: renderTimeViewClock,
+                  onChange={(newValue) => {
+                    setDay(newValue), console.log(day);
                   }}
+                  value={value}
+                  renderInput={(params) => <TextFields {...params} />}
                 />
               </LocalizationProvider>
             </td>

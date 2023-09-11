@@ -68,7 +68,7 @@ const MentorCard = ({ instructor }) => {
     <>
       {
         <div>
-          <div className='flex flex-col justify-center max-w-xs p-6 hover:scale-105  shadow-md rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100'>
+          <div className='flex flex-col justify-center max-w-xs  pt-6 pb-6 hover:scale-105  shadow-md rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100'>
             <img
               src={pat}
               alt=''
@@ -81,13 +81,17 @@ const MentorCard = ({ instructor }) => {
                   {user.title}
                 </p>
                 <div>
-                  <div className='flex flex-row gap-2'>
-                    <Rating
-                      name='read-only'
-                      value={avgreviews}
-                      precision={0.1}
-                      readOnly
-                    />
+                  <div className='flex '>
+                    <div className='mt-1 px-1'>
+                      <Rating
+                        name='read-only'
+                        size='small'
+                        value={avgreviews}
+                        precision={0.1}
+                        readOnly
+                      />
+                    </div>
+
                     <p className='text-xs sm:text-base text-gray-500'>
                       rating({reviews.length}reviews)
                     </p>
@@ -98,15 +102,17 @@ const MentorCard = ({ instructor }) => {
                     {hourRate}
                     <span className='text-2xl'>৳</span>/Hr
                   </div>
-                  {expertList &&
-                    expertList.map(
-                      (elemnt, index) =>
-                        elemnt.course !== '' && (
-                          <Badge color='indigo' className=' p-3' key={index}>
-                            {elemnt.course}
-                          </Badge>
-                        )
-                    )}
+                  <div className='w-56 flex gap-2'>
+                    {expertList &&
+                      expertList.map(
+                        (elemnt, index) =>
+                          elemnt.course !== '' && (
+                            <Badge color='indigo' className='p-2' key={index}>
+                              {elemnt.course}
+                            </Badge>
+                          )
+                      )}
+                  </div>
                   <button
                     type='button'
                     className='text-white  mt-3 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 '

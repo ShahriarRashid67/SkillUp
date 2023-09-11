@@ -224,7 +224,7 @@ const Sidebar = () => {
                 }
               >
                 <BsFillClipboard2CheckFill className='mr-4'></BsFillClipboard2CheckFill>
-                Pending Instructors
+                Pending
               </NavLink>
               <NavLink
                 to='/dashboard/addCourse'

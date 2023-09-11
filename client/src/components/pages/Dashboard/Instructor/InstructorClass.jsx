@@ -4,12 +4,14 @@ import { Authcontext } from '../../../../provider/Authprovider';
 //fdcdf177-a2a0-4558-ac49-dace07d7d7e9
 const InstructorClass = () => {
   const { userID } = useContext(Authcontext);
+
   const [sessions, setSessions] = useState('');
+  // const [temp, setTemp] = useState('');
   useEffect(() => {
     const cred = {
       mentorID: userID,
     };
-    console.log(cred);
+    // console.log(cred);
     {
       userID &&
         fetch(`http://localhost:3001/sessions/instructor`, {
@@ -19,8 +21,21 @@ const InstructorClass = () => {
         })
           .then((data) => data.json(data))
           .then((data) => {
+            // data.sort((a, b) => {
+            //   return new Date(a.day) > new Date(b.day);
+            // });
+            // setTemp(data);
             setSessions(data);
           });
+    }
+
+    if (sessions.length !== 0) {
+      // console.log(sessions[0]);
+      sessions.sort((a, b) => -a.day.localeCompare(b.day));
+      // console.log(sessions[0]);
+      // const compareDates = (date1, date2) => {
+      //   return new Date(date1) > new Date(date2);
+      // };
     }
   }, [sessions]);
   return (
@@ -37,17 +52,10 @@ const InstructorClass = () => {
             </tr>
             <tbody>
               {sessions &&
-                sessions.map(
-                  (session) => (
-                    console.log(session),
-                    (
-                      <ClassesRow
-                        key={session.id}
-                        session={session}
-                      ></ClassesRow>
-                    )
-                  )
-                )}
+                sessions.map((session) => (
+                  // console.log(session),
+                  <ClassesRow key={session.id} session={session}></ClassesRow>
+                ))}
               {/* <ClassesRow></ClassesRow> */}
             </tbody>
           </table>

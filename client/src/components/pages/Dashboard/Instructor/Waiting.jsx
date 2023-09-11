@@ -1,7 +1,7 @@
 const Waiting = () => {
   return (
     <div>
-      <h1>Please Wait For admin approval!</h1>
+      <div className=' text-3xl bold'>Please Wait For admin approval!</div>
       <h1>Contact with admins admin1@gmail.com</h1>
     </div>
   );

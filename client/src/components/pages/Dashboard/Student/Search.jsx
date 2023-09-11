@@ -1,15 +1,24 @@
 import React, { useEffect, useState } from 'react';
 
-const Search = ({ course }) => {
-  //   console.log('Search', course);
-  //   setData(course);
+const Search = ({ course, all, setInstructors }) => {
   const [sCourse, setsCourse] = useState('');
+  const [text, setText] = useState('');
+  const onSearch = (e) => {
+    setText(e.target.value);
+    if (!text) return setInstructors('');
+    console.log('Text', all);
+
+    const arr = all.filter(
+      (a) => a.description.includes(text) || a.title.includes(text)
+    );
+    setInstructors(arr);
+  };
   return (
     <div>
       <div className='my-10  ml-56 '>
         <div className='join flex gap-2 '>
-          <div className='relative flex mr-3 items-center w-56  border-2 h-11 rounded-lg focus-within:shadow-lg bg-white overflow-hidden'>
-            <div className='grid place-items-center h-full w-12 text-gray-300'>
+          <div className='relative flex mr-3 items-center   w-72  border-2 h-11 rounded-lg focus-within:shadow-lg bg-white overflow-hidden'>
+            <div className='grid place-items-center h-full w-14 text-gray-300'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 className='h-6 w-6'
@@ -30,9 +39,11 @@ const Search = ({ course }) => {
               className='peer h-full w-full outline-none text-sm text-gray-700 pr-2'
               type='text'
               id='search'
+              onChange={(e) => onSearch(e)}
               placeholder='Search something..'
             />
           </div>
+
           <select
             onChange={(e) => setsCourse(e.target.value)}
             className=' p-1 px-8 border-2 w-25 rounded-lg border-gray-300 text-gray-700 sm:text-sm'
@@ -44,12 +55,14 @@ const Search = ({ course }) => {
               </option>
             ))}
           </select>
-          <select className=' p-1 px-8 border-2 w-25 rounded-lg border-gray-300 text-gray-700 sm:text-sm'>
-            <option>Low price</option>
-            <option>Highest price</option>
-            <option>Rating</option>
-            <option>Experience</option>
-          </select>
+
+          <button
+            type='submit'
+            onClick={onSearch}
+            className='text-white  mr-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+          >
+            Search
+          </button>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 // import {
 //   // createUserWithEmailAndPassword,
 //   // getAuth,
@@ -38,6 +39,31 @@ const Authprovider = ({ children }) => {
       });
   };
   // login account
+  const listGenerate = () => {
+    let list1 = [];
+    fetch(`http://localhost:3001/auth/all`)
+      .then((data) => data.json())
+      .then((data) => {
+        data.map((d) => {
+          list1.push(d.name);
+        });
+      });
+    fetch(`http://localhost:3001/course`)
+      .then((data) => data.json())
+      .then((data) => {
+        data.map((d) => {
+          list1.push(d.courseName);
+        });
+        localStorage.setItem('list', JSON.stringify(list1));
+        // console.log(JSON.parse(list1));
+        console.log('After', JSON.pharse(localStorage.getItem('list')));
+      });
+    // console.log('Pg', list1);
+    // let obj = Object.assign({}, list1);
+    // console.log('Pg', obj, JSON.stringify(obj));
+    // console.log('Pg', JSON.stringify(list1));
+    // localStorage.list = JSON.stringify(list1.data);
+  };
   const userLogin = async (email, password) => {
     console.log(email, password);
     // setUser(email);
@@ -59,9 +85,30 @@ const Authprovider = ({ children }) => {
         setEmail(res[0].email);
         setRole(res[0].role);
         // setRole('Admin');
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+          },
+        });
+
+        Toast.fire({
+          icon: 'success',
+          title: 'Signed in successfully',
+        });
       })
       .catch((err) => {
-        console.log(err);
+        console.log('Err', err);
+        Swal.fire({
+          icon: 'error',
+          title: 'Login Failed',
+          text: "Email/Password doesn't match",
+        });
       });
     const Allusers = await fetch(`http://localhost:3001/auth/all`)
       .then((data) => data.json())
@@ -98,6 +145,7 @@ const Authprovider = ({ children }) => {
     userID,
     user,
     email,
+    listGenerate,
     // loading,
     role,
   };

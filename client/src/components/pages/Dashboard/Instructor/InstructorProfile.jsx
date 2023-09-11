@@ -22,16 +22,24 @@ const InstructorProfile = () => {
   const ind = allUser.findIndex((user) => user.id == dataUser.id);
 
   const [courseList, setCourseList] = useState([]);
-  const [expertList, setexpertList] = useState([]);
+  const [expertList, setexpertList] = useState('');
   const [sCourse, setsCourse] = useState('');
 
   const addCourse = () => {
+    if (expertList.length === 3) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Faild to add course',
+        text: 'Maximum limit of course exceeded',
+      });
+      return;
+    }
     const cred = {
-      id: dataUser.id,
+      mentorID: dataUser.id,
       course: sCourse,
-      mentor: dataUser.name,
     };
-    fetch(`http://localhost:3001/expert/`, {
+    console.log('Adding Course');
+    fetch(`http://localhost:3001/expert/pending`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -41,6 +49,22 @@ const InstructorProfile = () => {
       .then((data) => data.json(data))
       .then((data) => {
         console.log('Added', data);
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+          },
+        });
+
+        Toast.fire({
+          icon: 'success',
+          title: 'Course added for approval',
+        });
       });
     fetch(`http://localhost:3001/expert/mentor/${dataUser.id}`)
       .then((data) => data.json(data))
@@ -74,6 +98,7 @@ const InstructorProfile = () => {
           title,
           description,
         };
+        console.log(cred);
         fetch(`http://localhost:3001/instructor/${dataUser.id}`, {
           method: 'PUT',
           headers: {
@@ -273,19 +298,17 @@ const InstructorProfile = () => {
                       Add
                     </button>
                   </div>
-                  <div>
-                    {expertList.map(
-                      (elemnt, index) => (
-                        console.log('Ex', elemnt),
-                        (
-                          <Badge color='indigo' className=' p-4' key={index}>
-                            {elemnt.course}
-                          </Badge>
-                        )
-                      )
-                    )}
+                  <div className=' col-span-3 flex gap-2'>
+                    {console.log(Object.keys(expertList))}
+                    {Object.keys(expertList) &&
+                      expertList.map((elemnt, index) => (
+                        <Badge color='indigo' className=' p-4' key={index}>
+                          {elemnt.course}
+                        </Badge>
+                      ))}
                   </div>
                   <br />
+                  <div></div>
                   <div className='col-span-full'>Update Password</div>
                   <div className='col-span-full sm:col-span-2'>
                     <label htmlFor='sellerEmail' className=' text-base'>
